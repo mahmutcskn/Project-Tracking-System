@@ -1,0 +1,185 @@
+﻿@model PROJETAKIP_.Models.Personel.PersonelBilgileri
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*Date gün ay yıl şeklinde olmazsa kayıt etmiyor*@
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.PersonelBilgileriId)
+
+    <div class="card mb-4">
+        <h5 class="card-header">PERSONEL EKLE</h5>
+        <hr class="my-0">
+        <div class="card-body">
+            <form id="formAccountSettings" method="POST" onsubmit="return false">
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.AdSoyad, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+                            <input class="form-control" type="text" id="AdSoyad" name="AdSoyad" value="@Model.AdSoyad">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.PersonelGörseli, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+                            <input class="form-control" type="text" id="PersonelGörseli" name="PersonelGörseli" value="@Model.PersonelGörseli">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Eposta, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-envelope"></i></span>
+                            <input class="form-control" type="email" id="Eposta" name="Eposta" value="@Model.Eposta">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Departman, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-building"></i></span>
+                            <input class="form-control" type="text" id="Departman" name="Departman" value="@Model.Departman" placeholder="Departman">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Gorev, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-alarm"></i></span>
+                            <input class="form-control" type="text" name="Gorev" id="Gorev" value="@Model.Gorev" />
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.TCNO, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-alarm"></i></span>
+                            <input class="form-control" type="text" id="TCNO" name="TCNO" value="@Model.TCNO">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Yetki, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-adjust"></i></span>
+                            <input class="form-control" type="text" name="Yetki" id="Yetki" value="@Model.Yetki" />
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.TelNo, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-phone"></i></span>
+                            <input class="form-control" type="text" id="TelNo" name="TelNo" value="@Model.TelNo">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Adres, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-map"></i></span>
+                            <input class="form-control" type="text" id="Adres" name="Adres" value="@Model.Adres">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.DogumTarihi, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-phone"></i></span>
+                            <input class="form-control" type="text" id="DogumTarihi" name="DogumTarihi" value="@Model.DogumTarihi">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.IseGirisTarihi, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-phone"></i></span>
+                            <input class="form-control" type="text" id="IseGirisTarihi" name="IseGirisTarihi" value="@Model.IseGirisTarihi">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.MedeniHal, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-select-multiple"></i></span>
+                            <input class="form-control" type="text" id="MedeniHal" name="MedeniHal" value="@Model.MedeniHal">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.Sifre, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-paste"></i></span>
+                            <input class="form-control" type="text" id="Sifre" name="Sifre" value="@Model.Sifre">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.PozisyonAcıklama, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bxs-comment"></i></span>
+                            <input class="form-control" type="text" id="PozisyonAcıklama" name="PozisyonAcıklama" value="@Model.PozisyonAcıklama">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.YakinBilgisi, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bxs-bookmark"></i></span>
+                            <input class="form-control" type="text" id="YakinBilgisi" name="YakinBilgisi" value="@Model.YakinBilgisi">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.YakinAdSoyad, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bxs-bookmark"></i></span>
+                            <input class="form-control" type="text" id="YakinAdSoyad" name="YakinAdSoyad" value="@Model.YakinAdSoyad">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.YakinTC, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bxs-bookmark"></i></span>
+                            <input class="form-control" type="text" id="YakinTC" name="YakinTC" value="@Model.YakinTC">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        @Html.LabelFor(model => model.YakinTel, htmlAttributes: new { @class = "control-label col-md-6" })
+
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bxs-phone"></i></span>
+                            <input class="form-control" type="text" id="YakinTel" name="YakinTel" value="@Model.YakinTel">
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+            <div class="mt-2">
+                <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                <a href="/PersonelBilgileris/Index/" type="reset" class="btn btn-primary me-2">Anasayfaya Dön</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    }
